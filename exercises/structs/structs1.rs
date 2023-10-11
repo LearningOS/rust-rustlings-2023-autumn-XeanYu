@@ -25,7 +25,7 @@ mod tests {
     fn classic_c_structs() {
         // TODO: Instantiate a classic c struct!
         let green = ColorClassicStruct { name: "green".into(),
-                                         hex:  "#00FF00".into(), };
+                                         hex:  "#00FF00".into() };
 
         assert_eq!(green.red, 0);
         assert_eq!(green.green, 255);
