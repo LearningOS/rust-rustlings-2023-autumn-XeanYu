@@ -7,9 +7,15 @@
 // Execute `rustlings hint tests8` or use the `hint` watch subcommand for a
 // hint.
 
-// I AM NOT DONE
 
-fn main() {}
+fn main() {
+    // Set the TEST_FOO environment variable to the desired value.
+    println!("cargo:rerun-if-env-changed=TEST_FOO");
+    println!("cargo:TEST_FOO=123"); // Change the value to the desired timestamp
+
+    // Set the "pass" feature to enable the conditional compilation.
+    println!("cargo:rustc-cfg=feature=\"pass\"");
+}
 
 #[cfg(test)]
 mod tests {
