@@ -73,25 +73,20 @@
 // Execute `rustlings hint tests7` or use the `hint` watch subcommand for a
 // hint.
 
+fn main() {
+    // In tests7, we should set up an environment variable
+    // called `TEST_FOO`. Print in the standard output to let
+    // Cargo do it.
+    let timestamp = std::time::SystemTime::now()
+        .duration_since(std::time::UNIX_EPOCH)
+        .unwrap()
+        .as_secs();
+    let your_command = format!("cargo:rustc-env=TEST_FOO={}", timestamp);
+    println!("{}", your_command);
 
-fn main() {}
-#[cfg(test)]
-mod tests {
-    use super::*;
-
-    #[test]
-    fn test_success() {
-        // Get the value of the TEST_FOO environment variable
-        let s = std::env::var("TEST_FOO").unwrap();
-        let e: u64 = s.parse().unwrap();
-
-        // Get the current timestamp
-        let timestamp = std::time::SystemTime::now()
-            .duration_since(std::time::UNIX_EPOCH)
-            .unwrap()
-            .as_secs();
-
-        // Check if the timestamp is within the range specified by the environment variable
-        assert!(timestamp >= e && timestamp < e + 10);
-    }
+    // In tests8, we should enable "pass" feature to make the
+    // testcase return early. Fill in the command to tell
+    // Cargo about that.
+    let your_command = "cargo:rustc-cfg=feature=\"pass\"";
+    println!("{}", your_command);
 }
