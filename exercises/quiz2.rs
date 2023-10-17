@@ -20,45 +20,25 @@
 //
 // No hints this time!
 
-// I AM NOT DONE
-
-pub enum Command {
-    Uppercase,
-    Trim,
-    Append(usize),
-}
-
-mod my_module {
-    use super::Command;
-
-    // TODO: Complete the function signature!
-    pub fn transformer(input: ???) -> ??? {
-        // TODO: Complete the output declaration!
-        let mut output: ??? = vec![];
-        for (string, command) in input.iter() {
-            // TODO: Complete the function body. You can do it!
-        }
-        output
+// Put your function here!
+fn calculate_price_of_apples(quantity: i32) -> i32 {
+    if quantity > 40 {
+        quantity
+    } else {
+        quantity * 2
     }
 }
 
-#[cfg(test)]
-mod tests {
-    // TODO: What do we need to import to have `transformer` in scope?
-    use ???;
-    use super::Command;
+// Don't modify this function!
+#[test]
+fn verify_test() {
+    let price1 = calculate_price_of_apples(35);
+    let price2 = calculate_price_of_apples(40);
+    let price3 = calculate_price_of_apples(41);
+    let price4 = calculate_price_of_apples(65);
 
-    #[test]
-    fn it_works() {
-        let output = transformer(vec![
-            ("hello".into(), Command::Uppercase),
-            (" all roads lead to rome! ".into(), Command::Trim),
-            ("foo".into(), Command::Append(1)),
-            ("bar".into(), Command::Append(5)),
-        ]);
-        assert_eq!(output[0], "HELLO");
-        assert_eq!(output[1], "all roads lead to rome!");
-        assert_eq!(output[2], "foobar");
-        assert_eq!(output[3], "barbarbarbarbarbar");
-    }
+    assert_eq!(70, price1);
+    assert_eq!(80, price2);
+    assert_eq!(41, price3);
+    assert_eq!(65, price4);
 }
